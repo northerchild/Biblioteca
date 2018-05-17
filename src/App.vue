@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  <img src="./assets/logoCUN.png">
   <titulo></titulo>
    <!--Estructura de las tablas-->   
     <vueTable></vueTable>

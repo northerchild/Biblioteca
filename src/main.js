@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-//Dependencias
+//Dependencias De desarrollo
 import JQuery from 'jquery/dist/jquery.js'
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 import SweetAlert from 'sweetalert/dist/sweetalert.min.js'
-//Importar Modulos Front-End
+//Importar Modulos Front-End o vista
 import Titulo from './Titulo.vue'
 import Table from './Table.vue'
 import Footer from './Footer.vue'
