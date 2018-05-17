@@ -47,4 +47,15 @@ li {
 a {
   color: #42b983;
 }
+
+th,td,p{
+  color: #000;
+}
+.app-form input{
+  border-radius: 0;
+}
+.tareaRealizada {
+  text-decoration: line-through;
+  text-decoration-color: #ff0000;
+}
 </style>
