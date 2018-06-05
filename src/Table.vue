@@ -3,7 +3,12 @@
       <form class="mb-5" @submit.prevent="agregarTarea">
         <input class="mr-2 text-center" type="text" placeholder="Escribe tu nombre" v-model="tareas.nombre">
         <input class="mr-2 text-center" type="text" placeholder="Escribe tu apellido" v-model="tareas.apellido">
-        <input class="mr-2 text-center" type="text" placeholder="Carrera que estudias" v-model="tareas.carrera">
+        <select class="mr-3 text-center" v-model="tareas.carrera">
+          <option selected="selected">Carrera que estudias</option>
+          <option>Sistemas</option>
+          <option>Contaduria</option>
+          <option>Comunicación</option>
+        </select>
         <input class="mr-2 text-center" type="text" placeholder="Escribe el libro que buscas" v-model="tareas.libro">
       <input class="" type="submit" value="Añadir Libro" class="btn btn-success">
        </form>
@@ -38,6 +43,7 @@ export default {
   name: 'vueTable',
   data () {
     return {
+      articulos: [{nombre: 'Caballero'}],
       tareas:[
       {
         nombre: 'Pepito',
