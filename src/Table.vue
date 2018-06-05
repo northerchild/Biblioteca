@@ -1,22 +1,29 @@
 <template>
 	 <div class="container mt-5">
       <form class="mb-5" @submit.prevent="agregarTarea">
-      <input class="mr-5 text-center" type="text" placeholder="Escribe el libro que buscas" v-model="tareas.titulo">
-      <input type="submit" value="Añadir tarea" class="btn btn-success">
+        <input class="mr-2 text-center" type="text" placeholder="Escribe tu nombre" v-model="tareas.nombre">
+        <input class="mr-2 text-center" type="text" placeholder="Escribe tu apellido" v-model="tareas.apellido">
+        <input class="mr-2 text-center" type="text" placeholder="Carrera que estudias" v-model="tareas.carrera">
+        <input class="mr-2 text-center" type="text" placeholder="Escribe el libro que buscas" v-model="tareas.libro">
+      <input class="" type="submit" value="Añadir Libro" class="btn btn-success">
        </form>
           <div class="row">
             <div class="col">
              <table class="table">
             <thead class="table-bordered">
               <tr>
-                <th>¡Hecho!</th>
-                <th>Tarea</th>
-                <th>Borrar</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Carrera</th>
+                <th>Libro</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody class="">
               <tr v-for="tarea in tareas">
-                <td><input type="checkbox" v-model="tarea.hecho"></td>
+                <td :class="{tareaRealizada: tarea.hecho}">{{tarea.nombre}}</td>
+                <td :class="{tareaRealizada: tarea.hecho}">{{tarea.apellido}}</td>
+                <td :class="{tareaRealizada: tarea.hecho}">{{tarea.carrera}}</td>
                 <td :class="{tareaRealizada: tarea.hecho}">{{tarea.titulo}}</td>
                 <td><button @click="eliminarTarea(index)" class="btn btn-danger ">Eliminar</button></td>
               </tr>
@@ -33,15 +40,24 @@ export default {
     return {
       tareas:[
       {
+        nombre: 'Pepito',
+        apellido: 'Perez',
+        carrera: 'Contaduria',
         titulo: 'libro',
         hecho: false
       },
       {
-        titulo: 'libro 2',
+        nombre: 'Sutanito',
+        apellido: 'Gonzales',
+        carrera: 'Sistemas',
+        titulo: 'libro',
         hecho: false
       },
       {
-        titulo: 'libro 3',
+        nombre: 'Ximena',
+        apellido: 'Gutierrez',
+        carrera: 'Comunicación',
+        titulo: 'libro',
         hecho: false
       },
       ]
@@ -49,12 +65,16 @@ export default {
   },methods:{
     agregarTarea:function(tarea){
       this.tareas.push({
-        titulo: this.tareas.titulo,
+        titulo: this.tareas.libro,
+        nombre: this.tareas.nombre,
+        apellido: this.tareas.apellido,
+        carrera: this.tareas.carrera,
         hecho: false,
       })
+
       swal({
-        title: "Creaste la tarea: " + this.tareas.titulo,
-        text: "¡Vamos con todo, creemos en ti!",
+        title: "Solicitaste el libro: " + this.tareas.libro,
+        text: "¡Recuerda las fechas de entrega!",
       }),
         this.tareas.titulo = ''
     },
