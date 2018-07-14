@@ -3,11 +3,11 @@
       <form class="mb-5" @submit.prevent="agregarTarea">
         <input class="mr-2 text-center" type="text" placeholder="Escribe tu nombre" v-model="tareas.nombre">
         <input class="mr-2 text-center" type="text" placeholder="Escribe tu apellido" v-model="tareas.apellido">
-        <select class="mr-3 text-center" v-model="tareas.carrera">
-          <option selected="selected">Carrera que estudias</option>
-          <option>Sistemas</option>
-          <option>Contaduria</option>
-          <option>Comunicación</option>
+        <select class="mr-3 text-center" >
+          <option value="">Seleciona tu carrera</option>
+          <option value="sistemas">Sistemas</option>
+          <option value="financiera">Financiera</option>
+          <option value="administrativa">Administrativa</option>
         </select>
         <input class="mr-2 text-center" type="text" placeholder="Escribe el libro que buscas" v-model="tareas.libro">
       <input class="" type="submit" value="Añadir Libro" class="btn btn-success">
@@ -81,6 +81,7 @@ export default {
       swal({
         title: "Solicitaste el libro: " + this.tareas.libro,
         text: "¡Recuerda las fechas de entrega!",
+        icon: "success",
       }),
         this.tareas.titulo = ''
     },
