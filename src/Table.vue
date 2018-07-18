@@ -1,13 +1,13 @@
 <template>
 	 <div class="container mt-5">
       <form class="mb-5" @submit.prevent="agregarTarea">
-        <input class="mr-2 text-center" type="text" placeholder="Escribe tu nombre" v-model="tareas.nombre">
-        <input class="mr-2 text-center" type="text" placeholder="Escribe tu apellido" v-model="tareas.apellido">
-        <select class="mr-3 text-center" v-model="tareas.carrera">
+        <input class="mr-2 text-center" type="text" placeholder="Escribe tu nombre" v-model="tareas.nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+        <input class="mr-2 text-center" type="text" placeholder="Escribe tu apellido" v-model="tareas.apellido" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+        <select class="mr-3 text-center" v-model="tareas.carrera" required>
           <option disabled value="" v-bind:value="cursos.value">Selecciona tú carrera</option>
           <option  v-for="curso in cursos">{{curso.name}}</option>
         </select>
-        <input class="mr-2 text-center" type="text" placeholder="Escribe el libro que buscas" v-model="tareas.libro">
+        <input class="mr-2 text-center" type="text" placeholder="Escribe el libro que buscas" v-model="tareas.libro" required>
       <input class="" type="submit" value="Añadir Libro" class="btn btn-success">
        </form>
           <div class="row">
