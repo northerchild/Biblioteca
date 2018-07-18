@@ -3,11 +3,9 @@
       <form class="mb-5" @submit.prevent="agregarTarea">
         <input class="mr-2 text-center" type="text" placeholder="Escribe tu nombre" v-model="tareas.nombre">
         <input class="mr-2 text-center" type="text" placeholder="Escribe tu apellido" v-model="tareas.apellido">
-        <select class="mr-3 text-center" >
-          <option value="">Seleciona tu carrera</option>
-          <option value="sistemas">Sistemas</option>
-          <option value="financiera">Financiera</option>
-          <option value="administrativa">Administrativa</option>
+        <select class="mr-3 text-center" v-model="tareas.carrera">
+          <option disabled value="" v-bind:value="cursos.value">Selecciona tú carrera</option>
+          <option  v-for="curso in cursos">{{curso.name}}</option>
         </select>
         <input class="mr-2 text-center" type="text" placeholder="Escribe el libro que buscas" v-model="tareas.libro">
       <input class="" type="submit" value="Añadir Libro" class="btn btn-success">
@@ -21,8 +19,8 @@
                 <th>Apellido</th>
                 <th>Carrera</th>
                 <th>Libro</th>
-                <th>Fecha de solicitud</th>
-                <th>Días restantes de entrega</th>
+                <th>Fecha</th>
+                <th>Días restantes</th>
               </tr>
             </thead>
             <tbody class="">
@@ -47,7 +45,12 @@ export default {
   name: 'vueTable',
   data () {
     return {
-      carrera: [{nombre: 'Caballero'}],
+      cursos: [
+          { id: 1, name: 'Ing Sistemas' },
+          { id: 2, name: 'Diseño' },
+          { id: 3, name: 'Financiera' },
+          { id: 4, name: 'Ing Mecatronica' },
+          { id: 5, name: 'Administrativa' }],
       tareas:[
       {
         nombre: 'Pepito',
