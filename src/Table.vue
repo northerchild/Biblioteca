@@ -21,7 +21,8 @@
                 <th>Apellido</th>
                 <th>Carrera</th>
                 <th>Libro</th>
-                <th>Eliminar</th>
+                <th>Fecha de solicitud</th>
+                <th>Días restantes de entrega</th>
               </tr>
             </thead>
             <tbody class="">
@@ -30,7 +31,9 @@
                 <td :class="{tareaRealizada: tarea.hecho}">{{tarea.apellido}}</td>
                 <td :class="{tareaRealizada: tarea.hecho}">{{tarea.carrera}}</td>
                 <td :class="{tareaRealizada: tarea.hecho}">{{tarea.titulo}}</td>
-                <td><button @click="eliminarTarea(index)" class="btn btn-danger ">Eliminar</button></td>
+                <td>{{fecha}}</td>
+                <td>{{diferencia}}</td>
+                <!--<td><button @click="eliminarTarea(index)" class="btn btn-danger ">eliminar</button></td>-->
               </tr>
             </tbody>
            </table>
@@ -39,11 +42,12 @@
         </div>
 </template>
 <script>
+const moment = require('moment');   
 export default {
   name: 'vueTable',
   data () {
     return {
-      articulos: [{nombre: 'Caballero'}],
+      carrera: [{nombre: 'Caballero'}],
       tareas:[
       {
         nombre: 'Pepito',
@@ -108,6 +112,17 @@ export default {
             }
            
           });
+    }
+  },
+  computed:{
+    fecha(){
+      let inicio = moment().subtract(10, 'days').calendar()
+      return inicio
+    },
+    diferencia(){
+      let fecha1 = moment().subtract(31, 'days').calendar()
+      let fecha2 = moment().add(-1, 'days');
+      return fecha2.diff(fecha1, 'days')+' Días';
     }
   }
 }

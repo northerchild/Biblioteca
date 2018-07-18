@@ -18,7 +18,8 @@ export default {
       title: 'Biblioteca CUN',
       moment:moment
     }
-  },computed:{
+  },
+  computed:{
     fecha(){
       let inicio = moment(new Date()).local().format('MMMM Do YYYY');
       return inicio
